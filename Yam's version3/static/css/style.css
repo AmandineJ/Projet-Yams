@@ -1,0 +1,143 @@
+body
+{
+    background: #fff;
+    font-weight: 300;
+    color: #777;
+    line-height: 1.65em;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Source Sans Pro';
+}
+
+table
+{
+    margin: auto;
+    text-align: left;
+    border:2px solid red;
+
+    margin-bottom: 30px;
+}
+
+header
+{
+    border-bottom: 2px solid #e5e5e5;
+    padding:100px 0;
+    margin:0 50px;
+}
+
+header#top2
+{
+    padding:50px 0;
+}
+
+header h1
+{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ed786a;
+    font-size: 2.5em;
+    letter-spacing: 15px;
+    text-shadow: 0.05em 0.075em 0 rgba(0,0,0,0.1);
+    font-family: 'Arvo';
+
+}
+
+header p
+{
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #888;
+}
+
+
+
+
+footer
+{
+    width:100%;
+    background-color: #f0f0f0;
+    border-top: 2px solid #e5e5e5;
+    padding:50px 0;
+    color: #666;
+}
+
+
+
+section
+{
+    border-top: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;
+    margin:10px 50px;
+    text-align: center;
+    max-width: 100%;
+}
+
+    section h2
+    {
+        font-weight: 600;
+        font-variant:small-caps;
+        color: #888;
+        font-size:1.5em;
+        letter-spacing: 12px;
+        margin:50px 0;
+    }
+
+
+    section article img {width: 100%;}
+
+    section#contacter,
+    section#connecter
+    {
+        background-color: #f0f0f0;
+        margin:0;
+        border:0;
+        border-top: 2px solid #e5e5e5;
+        padding:50px 0;
+    }
+
+    section#contacter h2,
+    section#connecter h2
+    {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #666;
+    }
+
+
+input[type="search"]
+{
+    background: url("../images/search.png") no-repeat left center;
+    padding-left: 30px;
+}
+
+section#lien
+{
+    border:0;
+}
+
+section#lien a
+{
+    color:darkgrey;
+}
+
+section#lien a svg
+{
+    border:5px solid rgba(209, 209, 209, 0.31);
+    border-radius: 20px;
+    padding:10px;
+}
+
+section table
+{
+    margin: auto;
+    text-align: left;
+    border:2px solid #e5e5e5;
+    margin-bottom: 30px;
+}
+
+section table td
+{
+    border:2px solid #e5e5e5;
+    padding:0 10px;
+}
+

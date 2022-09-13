@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/menu.css" />
+    <body>
+      <section>
+        <h2>YAM'S</h2>
+      </section>
+    </body>
+</head>
+<nav><ul>
+  <li><a  href="/" >Accueil</a></li>
+  <li><a  href="/jouer" >Jouer</a></li>
+  <li><a  href="/regle" >Règles</a></li>
+  <li><a  href="/score" >Score</a></li>
+  <li><a  href="/login" >connection</a></li>
+  {%if 'login' in session %}
+  <li><a  href="/logout" >déconnexion</a></li>
+  {%endif%}
+
+  
+</ul></nav>
+<body>
+    <div class="main">
+        {% block body %}{%endblock%}
+    </div>
+</body>
+<footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span> ENAC</span></strong>. All Rights Reserved
+      </div>
+    </div>
+</footer>
+</html>

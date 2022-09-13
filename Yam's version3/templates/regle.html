@@ -1,0 +1,124 @@
+{% extends 'layout.html' %}
+{% block title %}
+Règles
+{% endblock %}
+
+{% block body %}
+
+<section>
+    <h3>Comment jouer?</h3>
+</section>
+<section>
+    <ol type="I"></ol>
+    <li>Chaque joueur lance les dés lorsque vient son tour.</li>
+    <li>Son but est, à l'aide des cinq dés, de réaliser une figure</li>
+    <li>our réaliser cette figure, il a le droit à trois jets de dés par tour et il est, à chaque jet,
+        libre de relancer tous les dés ou juste ceux de son choix.</li>
+    <li>Le joueur doit obligatoirement choisir une figure à la fin de son tour, et si celle
+        obtenue après les 3 lancés ne correspond pas à celles restantes dans la grille, on y affectera
+        la valeur 0.</li>
+    <li>Le gagnant est celui qui a fait le plus de points, certaines figures donnant des points
+        supplémentaires si elles sont réussies.</li>
+</section>
+<section><h4>Déscriptif des figures</h4>
+
+    <table>
+        <thead>
+            
+            <tr>
+                <CENTER><p><th colspan="2">Partie Supérieur</th></p></CENTER>   
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Combinaison</th>
+                <th>Points</th>
+            </tr>           
+            <tr>
+                <td>As</td>
+                <td>1 × le nombre de dés 1 obtenus</td>
+            </tr>
+            <tr>
+                <td>Deux</td>
+                <td>2 × le nombre de dés 2 obtenus</td>
+            </tr>
+            <tr>
+                <td>Trois</td>
+                <td>3 × le nombre de dés 3 obtenus</td>
+            </tr>
+            <tr>
+                <td>Quatre</td>
+                <td>4 × le nombre de dés 4 obtenus</td>
+            </tr>
+            <tr>
+                <td>Cinq</td>
+                <td>5 × le nombre de dés 5 obtenus</td>
+            </tr>
+            <tr>
+                <td>Six</td>
+                <td>6 × le nombre de dés 6 obtenus</td>
+            </tr>
+            <tr>
+                <td>Sous-total</td>
+                <td>Somme des points obtenus ci-dessus</td>
+            </tr>
+            <tr>
+                <td>Prime</td>
+                <td>30 points si le sous-total est supérieur ou égal à 60 points</td>
+            </tr>
+            <tr>
+                <td>Total I</td>
+                <td>Somme du sous-total et de l'éventuelle prime</td>
+            </tr>
+            
+            
+            <tr>
+                <center><p><th colspan="2">Partie intemédiaire</th></p></center>   
+            </tr>
+            <tr>
+                <td>Supérieur (doit être supérieure à la case ci-dessous)</td>
+                <td>Somme des dés</td>
+            </tr>
+            <tr>
+                <td>Inférieur (doit être inférieur à la case ci-dessus)</td>
+                <td>Somme des dés</td>
+            </tr>
+            <tr>
+                <td>Total II</td>
+                <td>(Supérieur –
+                    Inférieur) * nb As</td>
+            </tr>
+            <tr>
+                <center><p><th colspan="2">Partie Inférieur</th></p></center>   
+            </tr>
+            <tr>
+                <td>Carré (Quatre dés identiques)</td>
+                <td>40 points + somme des dés</td>
+            </tr>
+            <tr>
+                <td>Full (Trois dés identiques + deux dés
+                    identiques)</td>
+                <td>30 points + somme des dés</td>
+            </tr>
+            <tr>
+                <td>Petite suite (Suite de 4 dés)</td>
+                <td>45 points</td>
+            </tr>
+            <tr>
+                <td>Grande suite (Suite de 5 dés)</td>
+                <td>50 points</td>
+            </tr>
+            <tr>
+                <td>Yam's (Cinq dés identiques)</td>
+                <td>50 points + somme des dés</td>
+            </tr>
+            <tr>
+                <td><strong>Total III</strong></td>
+                <td>Somme des cases ci-dessus</td>
+            </tr>
+        </tbody>
+
+</table></section>
+    
+
+    {% endblock %}

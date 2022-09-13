@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Jouer
+{% endblock %}
+
+{% block body %}
+
+    
+    <section>
+        <h3>C'est parti!</h3>
+        <form action="/nouvelle_partie" method="post">
+            <button type="submit"> Nouvelle partie </button>
+        </form>
+    </section>
+    
+
+
+    {% if session['nbjoueur'] == 0  %}
+
+        <section>
+            <form action="/jouer" method="post">
+                <label for="joueur">Nombre de joueurs</label>
+                <input type="number" name="nbjoueurs" id="joueurs" placeholder="Nombre" /> 
+                <input type="submit" name="nbjoueurs"><br />
+            </form>
+        </section>
+    {% endif %}
+
+
+ 
+
+
+    
+        {% if valeur_des %}
+        <section>
+            <h3>Joueur </h3>  
+        </section>
+            {% for i in valeur_des %}       
+            <img src="/static/images/{{i}}.jpg" alt= " de {{i}}">  
+            {% endfor %}
+        {% endif %}
+    
+
+        <section>
+                
+            <form>
+                    <label for="de">Quelles dés voulez-vous relancer ?</label>
+                <input type="checkbox" name="1" id="C1" value="1" />
+                <label for="C1"> Dé 1</label>
+                <input type="checkbox" name="2" id="C2" value="2" />
+                <label for="C1"> Dé 2</label>
+                <input type="checkbox" name="3" id="C3" value="3" />
+                <label for="C1"> Dé 3</label>
+                <input type="checkbox" name="4" id="C4" value="4" />
+                <label for="C1"> Dé 4</label>
+                <input type="checkbox" name="5" id="C5" value="5" />
+                <label for="C1"> Dé 5</label> 
+                <input type="submit" name="ok"><br /> 
+            </form>
+                
+
+
+            <form>    
+                <label for="choix">Choisissez votre stratégie!</label>
+                <select name="choix_figure" aria-label="superieur">
+                <option selected disabled>
+                    Votre choix
+                </option>
+                <option value="2">As</option>
+                <option value="3">Deux</option>
+                <option value="4">Trois</option>
+                <option value="5">Quatre</option>
+                <option value="6">Cinq</option>
+                <option value="7">Supérieur</option>
+                <option value="8">Inférieur</option>
+                <option value="9">Carré</option>
+                <option value="10">Full</option>
+                <option value="11">Petite suite</option>
+                <option value="12">Grande suite</option>
+                <option value="13">Yam's!!</option>
+                </select>
+                <input type="submit" name="ok"><br />
+
+                
+            </form>
+                    
+    
+        </section>
+        
+    
+    <table class="table text=centered mx-auto w-100">
+        <tbody>
+            <tr>
+                <td>Dé 1</td>
+                <td>Dé 2</td>
+                <td>Dé 3</td>
+                <td>Dé 4</td>
+                <td>Dé 5</td>
+            </tr>
+
+            <tr>
+                <td>
+                
+                <img src="/static/images/1.jpg" alt= " de 1"> 
+                </td> 
+            </tr>
+
+            <tr>
+                <form class="w-75 mx-auto pt-3 pb-3" action="/lancer" method="GET">
+
+                <td><input type="checkbox" name="0" id="0" value="0" /></td>
+                <td><input type="checkbox" name="1" id="1" value="1" /></td>
+                <td><input type="checkbox" name="2" id="2" value="2" /></td>
+                <td><input type="checkbox" name="3" id="3" value="3" /></td>
+                <td><input type="checkbox" name="4" id="4" value="4" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
