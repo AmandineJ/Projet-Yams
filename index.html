@@ -1,0 +1,64 @@
+    {% extends 'layout.html' %}
+    {% block title %}
+        Page d'Accueil 
+    {% endblock %}
+
+    
+
+    {% block body %}
+   
+    <section>
+        <h3>page d'Accueil</h3>
+    
+        
+
+
+          <!-- ======= Section photos en caroussel======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" >
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown"> Bienvenue sur ce site de jeu: <span>Yam's</span></h2>
+                <p class="animate__animated animate__fadeInUp">Conaissez-vous Yam's ? Venez découvrir le jeu </p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url('/static/images/des.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">.</h2>
+                <p class="animate__animated animate__fadeInUp">.</p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">.</a>
+              </div>
+            </div>
+          </div>
+
+
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End caroussel -->
+
+
+    
+    </section>
+    {% endblock %}
+

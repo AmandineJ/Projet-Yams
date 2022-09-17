@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Scores 
+{% endblock %}
+
+{% block body %}
+<section>
+    <h3>Qui est le meilleur?</h3>
+</section>
+ <section>
+     <table>
+         <thead>
+             <tr>
+                 <th>Classement</th>
+                 <th>Nom</th>
+                 <th>Score</th>
+
+             </tr>
+         </thead>
+         <body>
+             {%for elt in score %} 
+                 <tr>
+                 {%for data in elt %} 
+                 <td>
+                     {{data}}
+                 </td>
+                 {%endfor %} 
+                 </tr>
+             {%endfor %} 
+         </body>
+     </table>
+               
+
+ </section>
+{% endblock %}

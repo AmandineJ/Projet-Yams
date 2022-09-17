@@ -1,0 +1,142 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Jouer
+{% endblock %}
+
+{% block body %}
+
+<!-- Lancer une partie --> 
+
+    <section>
+        <h3>C'est parti!</h3>
+        <form action="/nouvelle_partie" method="post">
+            <button type="submit"> Nouvelle partie </button> <!-- Redémarre une partie à chaque instant. Le bouton doit donc rester affiché --> 
+        </form>
+    </section>
+   
+<!-- Sélectionne le nombre de joueurs --> 
+
+    {% if session['nbjoueur'] == 0  %}  <!-- S'affiche une fois la partie initialisé  --> 
+
+        <section>
+            <form action="/nombre_de_joueurs" method="post">
+                <label for="joueur">Nombre de joueurs</label>
+                <input type="number" name="nbjoueurs" id="joueurs" placeholder="Nombre" /> 
+                <button type="submit" >envoyer</button><br />
+            </form>
+        </section>
+    {% endif %}
+
+<!-- LUne fois le nombre de joueurs sélectionner, le bouton enregistrer reste affiché jusqu'à la fin de la partie -->
+    {% if session['nbjoueur']>0 %}
+        <section>
+            <form action="/enregistrer" method="post">  
+                <button type="submit"> Enregistrer ma partie </button>
+            </form>
+        </section>
+    {% endif %}
+
+
+<!-- Affiche au début de chaque tour de joueur qui doit jouer --> 
+    
+    {% if session['etape'] == 1 %}
+    <section>
+        <form action="/lancer_des1" method="post">
+        Nous sommes au tour numéro {{session['tour en cours']+ 1}}, C'est au joueur {{session['joueur en cours'] + 1}} de jouer  
+        <button type="submit" >jouer</button><br /> 
+        </form>
+    </section>
+    {% endif %}
+
+
+<!-- Affiche les résultats du tirage pour chaque lancer --> 
+
+    {% if session['etape'] ==2 or session['etape'] ==3  %}
+    
+    <section>
+        <h3>Quelles dés voulez-vous relancer ?</h3>
+        <table class="table text=centered mx-auto w-100">
+            <tbody>
+                <tr>
+                    <td>Dé 1</td>
+                    <td>Dé 2</td>
+                    <td>Dé 3</td>
+                    <td>Dé 4</td>
+                    <td>Dé 5</td>
+                </tr>
+                <tr>    
+                        {% for i in session["valeur_des"] %}  
+                            <td>     
+                            <img src="/static/images/{{i}}.jpg" alt= " de {{i}}">  
+                            </td>
+                        {% endfor %}      
+                </tr>
+        <!-- Invite à sélectionner les dés à relancer --> 
+                <tr>
+                    <form class="w-75 mx-auto pt-3 pb-3" action="/lancer_des23" method="post">
+    
+                    <td><input type="checkbox" name="selectde" id="0" value="0" /></td>
+                    <td><input type="checkbox" name="selectde" id="1" value="1" /></td>
+                    <td><input type="checkbox" name="selectde" id="2" value="2" /></td>
+                    <td><input type="checkbox" name="selectde" id="3" value="3" /></td>
+                    <td><input type="checkbox" name="selectde" id="4" value="4" /></td>
+                    <tr><button type="submit">Relancer les dés sélectionés</button></tr>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+        <form action="/finir_lancer" method="post">
+            <button type="submit"> Garder tout les dés et sélectionner une stratégie </button> <!-- Ajout d'un bouton pour choisir directement une stratégie --> 
+        </form>
+
+    </section>
+{% endif %}
+            
+
+
+<!-- Affiche les dés et la liste déroulante de stratégie --> 
+
+    {% if session['etape'] ==4 or session['fin_lancer']== True  %}   <!-- La liste s'affiche si on est à notre troisième tour ou si on veut garder notre combinaison au tour 1 ou 2 --> 
+        
+    <table class="table text=centered mx-auto w-100">
+        <tbody>
+            <tr>
+                    {% for i in session["valeur_des"] %}  
+                        <td>     
+                        <img src="/static/images/{{i}}.jpg" alt= " de {{i}}">  
+                        </td>
+                    {% endfor %}       
+            </tr>
+        </tbody>
+    </table>
+    
+        <form action="/choix_figure"  method="post">    
+            <label for="choix">Choisissez votre stratégie!</label>
+            <select name="choix_figure" aria-label="superieur">
+            <option selected disabled>
+                Votre choix
+            </option>
+            <option value="1">As</option>
+            <option value="2">Deux</option>
+            <option value="3">Trois</option>
+            <option value="4">Quatre</option>
+            <option value="5">Cinq</option>
+            <option value="6">Six</option>
+            <option value="7">Supérieur</option>
+            <option value="8">Inférieur</option>
+            <option value="9">Carré</option>
+            <option value="10">Full</option>
+            <option value="11">Petite suite</option>
+            <option value="12">Grande suite</option>
+            <option value="13">Yam's!!</option>
+            </select>
+            <button type="submit">Valider votre choix</button><br />
+
+            
+        </form> 
+    {% endif %}            
+    
+        
+
+{% endblock %}
+ 
